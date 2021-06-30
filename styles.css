@@ -1,0 +1,158 @@
+@keyframes blink {
+  50% {
+    color: rgba(0, 0, 0, 0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: url('https://unsplash.it/600/400?image=764') no-repeat;
+  background-size: cover;
+  
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  display: block;
+}
+
+body > h1 {
+  margin: 0 0 20px 0;
+}
+
+body > h2 {
+  font-size: 0.75em;
+  color: #777;
+}
+
+#searchingNotification {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#searchingNotification.show {
+  display: block;
+}
+
+#searchingNotification h2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: #fff;
+  font-size: 65px;
+  text-transform: uppercase;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: blink 1s linear infinite;
+}
+
+#searchingNotification #find {
+  background-image: url('https://media.giphy.com/media/bnDYyn2HMzqpDEUecP/giphy.gif');
+}
+
+#searchingNotification.check #find {
+ display: none;
+}
+
+#searchingNotification #check {
+  background-image: url('https://media.giphy.com/media/QWd0DkjWZrH3bxW1c9/source.gif');
+}
+
+#addForm input {
+  width: 25em;
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid #bbb;
+  border-right-width: 1px;
+}
+
+#addForm input[type=submit] {
+  width: auto;
+  border-radius: 0 10px 10px 0;
+  border-width: 2px 2px 2px 1px;
+}
+
+#receipt {
+  width: 25vw;
+  margin: 30px auto 0;
+  padding: 10px;
+  font-family: monospace;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #000;
+  border-radius: 10px;
+}
+
+#receipt h2 {
+  text-transform: uppercase;
+}
+
+#items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#items thead {
+  text-align: left;
+  border: 1px dashed #000;
+  border-width: 1px 0;
+}
+
+#items thead th {
+  padding: 5px 0;
+}
+
+#items tbody td {
+  padding: 10px 0;
+}
+
+#items tbody td:first-child {
+  text-align: left;
+}
+
+#items tbody td:last-child {
+  text-align: right;
+}
+
+#items tfoot {
+  text-align: right;
+  border-top: 1px dashed #000;
+}
+
+#items tfoot td {
+  padding: 5px 0;
+}
+
+#receipt footer {
+  width: 50%;
+  margin: 20px auto 0;
+  font-size: 0.5em;
+}

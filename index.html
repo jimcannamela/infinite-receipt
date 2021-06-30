@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tam's Emporium</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="scripts/utils.js" type="text/javascript"></script>
+  <script defer src="scripts/actions.js" type="text/javascript"></script>
+  <script defer src="scripts/add.js" type="text/javascript"></script>
+  <script defer src="scripts/main.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="searchingNotification">
+    <h2 id="check">Double Checking Price</h2>
+    <h2 id="find">Retrieving Your Item</h2>
+  </div>
+  <h1>Tam's<br/>Exponentially Expansive<br/>Warehouse of All Things<br/>Rare and Otherwise</h1>
+  <form id="addForm">
+    <input id="item" placeholder="What Item Would You Like to Purchase?"/><input type="submit" value="Purchase"/>
+  </form>
+  <h2>All Sales are Final</h2>
+  <section id="receipt">
+    <header>
+      <h2>Tam's Warehouse of All Things</h2>
+      <h3 id="timestamp"></h3>
+    </header>
+    <table id="items"> 
+      <thead>
+        <tr>
+          <th>ITEM</th>
+          <th>PRICE</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td>ITEM COUNT:</td>
+          <td id="itemCount"></td>
+        </tr>
+        <tr>
+          <td>TOTAL:</td>
+          <td id="totalCost"></td>
+        </tr>
+        <tr>
+          <td>CHECKOUT TIME:</td>
+          <td id="totalTime"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <footer>
+      <p>Tam is legally required to disclose that items offered and sold have been determined not to be fit for a museum environment.</p>
+    </footer>
+  </section>
+</body>
+</html>
