@@ -36,15 +36,15 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
 
   // If set up correctly the next callback in the chain will be given an item with a cost,
   // regardless of a price check or not.
-  // In the next callback of the chain, simply call `addToReceipt(myItemWithACost)`.
+  // In the next callback of the chain, simply call `addToReceipt(myItemWithACost)` (defined in add.js).
   // This takes an item object (with a cost) and will update the receipt display.
 
   // To notify the user of what is going on, you have `notificationDisplay`.
   // Start by adding the class "show" to this element at the bottom of this event handler.
-  // It should be the last line in this function we are in.
+  // It should be the last line before the last set of `});`.
 
   // If you have to do a price check, add the class "check" to `notificationDisplay`.
-  // Be sure to do this before you return the price check promise.
+  // Be sure to do this before you return the price check promise in the first callback.
 
   // Lastly, in the second callback of the chain, remove both 
   // the "show" and "check" classes from `notificationDisplay`.
