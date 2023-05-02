@@ -5,12 +5,10 @@ function displayError(reason) {
   $errorDiv.innerText = `Operation could not complete. Reason given was: ${reason}`;
 }
 
-
 document.getElementById('addForm').addEventListener('submit', function(event) {
   event.preventDefault();
   
   var itemName = itemInput.value;
-
 
   getItem(itemName)
 
@@ -25,12 +23,14 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
 
     .then(function(myItem) {
       addToReceipt(myItem);
-      notificationDisplay.classList.remove('show', 'check');
     })
 
-    // .catch((error) => console.error)
+    .catch((error) => console.error)
 
-    .finally(() => itemInput.value = "" );
+    .finally(function() {
+      itemInput.value = "";
+      notificationDisplay.classList.remove('show', 'check')
+    });
 
 
     
@@ -91,3 +91,4 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
 
 document.getElementById('timestamp').textContent = getDateTimeString();
 
+/// End of Script ///
