@@ -13,16 +13,24 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
 
 
   getItem(itemName)
-    .then(function(result) {
-      if (itemName.cost === undefined) {
-        return priceCheck(result)
+
+    .then(function(item) {    
+      if (!item.cost) {
+        notificationDisplay.classList.add('check');
+        return priceCheck(item);
       }
+
+      return item;
     })
-    .then(function(newResult) {
-      addToReceipt(newResult)
+
+    .then(function(myItem) {
+      addToReceipt(myItem);
+      notificationDisplay.classList.remove('show', 'check');
     })
-    .catch((error) => console.error)
-    .finally(() => itemInput.value = "");
+
+    // .catch((error) => console.error)
+
+    .finally(() => itemInput.value = "" );
 
 
     
@@ -78,6 +86,7 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
   // And that should be it! You should be able to use the application now!
 
   // Hint: this will **not** be a lot of code.
+  notificationDisplay.classList.add('show');
 });
 
 document.getElementById('timestamp').textContent = getDateTimeString();
