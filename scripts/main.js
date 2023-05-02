@@ -1,16 +1,42 @@
 var itemInput = document.getElementById('item');
 var notificationDisplay = document.getElementById('searchingNotification');
 
+function displayError(reason) {
+  $errorDiv.innerText = `Operation could not complete. Reason given was: ${reason}`;
+}
+
+
 document.getElementById('addForm').addEventListener('submit', function(event) {
   event.preventDefault();
   
   var itemName = itemInput.value;
 
+
+  getItem(itemName)
+    .then(function(result) {
+      if (itemName.cost === undefined) {
+        return priceCheck(result)
+      }
+    })
+    .then(function(newResult) {
+      addToReceipt(newResult)
+    })
+    .catch((error) => console.error)
+    .finally(() => itemInput.value = "");
+
+
+    
+  // <div id="searchingNotification">
+  //   <h2 id="check">Double Checking Price</h2>
+  //   <h2 id="find">Retrieving Your Item</h2>
+  // </div>
+
+
   // Hello and welcome to the Tam development team!
   // Your first job is to fill in the logic here.
   // I will help guide you through the code so you know exactly what is needed.
   
-  // Start by calling `getItem(itemName)` (this is defined in actions.js). 
+  // Start by calling `getItem(itemName)` (this is defined in actions.js).   
   // This function returns a promise and can take up to 4 seconds to complete.
   // When the promise resolves, the callback will be given an item object:
   /* 
@@ -21,7 +47,7 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
       cost: [decimal number OR null]
     }
    */
-  
+
   // The problem is, items don't always come from the warehouse with a price tag.
   // I am not saying the warehouse is inefficient, but Tam does like to haggle and
   // not having a price tag can be an advantage to the seller.
